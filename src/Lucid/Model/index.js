@@ -351,7 +351,7 @@ class Model extends BaseModel {
    * @param  {Object} payload
    * @param  {Object} [trx]
    *
-   * @return {Model} Model instance is returned
+   * @return {Promise<Model>} Model instance is returned
    */
   static async create (payload, trx) {
     const modelInstance = new this()
@@ -382,7 +382,7 @@ class Model extends BaseModel {
    * @param  {Array} payloadArray
    * @param  {Object} [trx]
    *
-   * @return {Array} Array of model instances is returned
+   * @return {Promise<Array>} Array of model instances is returned
    *
    * @throws {InvalidArgumentException} If payloadArray is not an array
    */
@@ -1294,7 +1294,7 @@ class Model extends BaseModel {
    *
    * @method reload
    *
-   * @return {void}
+   * @return {Promise<void>}
    */
   async reload () {
     if (this.$frozen) {
@@ -1319,7 +1319,7 @@ class Model extends BaseModel {
   *
   * @param  {String} columnName = '*'
   *
-  * @return {Number}
+  * @return {Promise<Number>}
   */
   static async getCount (columnName = '*') {
     return this.query().getCount(columnName)
@@ -1332,7 +1332,7 @@ class Model extends BaseModel {
   *
   * @param  {String} columnName
   *
-  * @return {Number}
+  * @return {Promise<Number>}
   */
   static async getCountDistinct (columnName) {
     return this.query().getCountDistinct(columnName)
@@ -1345,7 +1345,7 @@ class Model extends BaseModel {
   *
   * @param  {String} columnName
   *
-  * @return {Number}
+  * @return {Promise<Number>}
   */
   static async getAvg (columnName) {
     return this.query().getAvg(columnName)
@@ -1358,7 +1358,7 @@ class Model extends BaseModel {
   *
   * @param  {String} columnName
   *
-  * @return {Number}
+  * @return {Promise<Number>}
   */
   static async getAvgDistinct (columnName) {
     return this.query().getAvgDistinct(columnName)
@@ -1371,7 +1371,7 @@ class Model extends BaseModel {
   *
   * @param  {String} columnName
   *
-  * @return {Number}
+  * @return {Promise<Number>}
   */
   static async getMin (columnName) {
     return this.query().getMin(columnName)
@@ -1384,7 +1384,7 @@ class Model extends BaseModel {
   *
   * @param  {String} columnName
   *
-  * @return {Number}
+  * @return {Promise<Number>}
   */
   static async getMax (columnName) {
     return this.query().getMax(columnName)
@@ -1397,7 +1397,7 @@ class Model extends BaseModel {
   *
   * @param  {String} columnName
   *
-  * @return {Number}
+  * @return {Promise<Number>}
   */
   static async getSum (columnName) {
     return this.query().getSum(columnName)
@@ -1410,7 +1410,7 @@ class Model extends BaseModel {
   *
   * @param  {String} columnName
   *
-  * @return {Number}
+  * @return {Promise<Number>}
   */
   static async getSumDistinct (columnName) {
     return this.query().getSumDistinct(columnName)
